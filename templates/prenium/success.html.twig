@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paiement réussi{% endblock %}
+
+{% block body %}
+    <div class="container mt-5 text-center">
+        <h1>Merci pour votre paiement.</h1>
+        <p>Votre compte est maintenant Premium !</p>
+        <a href="{{ path('app_home') }}" class="btn btn-success mt-3">Retour à l’accueil</a>
+    </div>
+{% endblock %}

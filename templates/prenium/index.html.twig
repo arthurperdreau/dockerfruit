@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Devenir Premium{% endblock %}
+
+{% block body %}
+    <div class="container mt-5" style="max-width: 500px;">
+        <h1 class="mb-4 text-center">Devenir Premium</h1>
+
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-danger">{{ message }}</div>
+        {% endfor %}
+
+        <form action="{{ path('prenium') }}" method="POST" class="card p-4 shadow-sm">
+            <div class="mb-3">
+                <label for="email" class="form-label">Adresse email</label>
+                <input type="email" name="email" id="email" class="form-control" required placeholder="Votre email">
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">Mot de passe</label>
+                <input type="password" name="password" id="password" class="form-control" required placeholder="Votre mot de passe">
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">
+                Passer Premium (5€)
+            </button>
+        </form>
+
+        <p class="text-center mt-3">
+            Vous serez redirigé vers Stripe pour finaliser le paiement sécurisé.
+        </p>
+    </div>
+{% endblock %}
