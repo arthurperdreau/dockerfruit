@@ -50,7 +50,6 @@ final class LegumeController extends AbstractController
             return new JsonResponse(['error' => 'Invalid saison ID'], 400);
         }
 
-        // Crée le légume
         $legume = new Legume();
         $legume->setName($data['name']);
         $legume->setSaison($saison);
@@ -59,7 +58,6 @@ final class LegumeController extends AbstractController
         $em->persist($legume);
         $em->flush();
 
-        // Sérialisation du résultat
         $json = $serializer->serialize($legume, 'json', ['groups' => ['legume-read']]);
         return new JsonResponse($json, 201, [], true);
     }
